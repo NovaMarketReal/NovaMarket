@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Account Marketplace</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #6a0dad, #8a2be2);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: rise 10s infinite ease-in;
+        }
+        @keyframes rise {
+            0% { transform: translateY(0) scale(1); opacity: 0.6; }
+            50% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+        }
+        
+        .container {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 18px;
+            color: white;
+            background: #6a0dad;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background: #8a2be2;
+        }
+        
+        .home-section {
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+        }
+        .account-list {
+            list-style: none;
+            padding: 0;
+        }
+        .account-item {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bubbles">
+        <script>
+            for (let i = 0; i < 20; i++) {
+                let bubble = document.createElement("div");
+                bubble.className = "bubble";
+                let size = Math.random() * 50 + 10;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                document.querySelector(".bubbles").appendChild(bubble);
+            }
+        </script>
+    </div>
+    <div class="container">
+        <h1>Welcome to Game Account Marketplace</h1>
+        <p>Buy and sell Steam, Roblox, Fortnite accounts securely.</p>
+        <a href="signin.html" class="button">Sign In</a>
+        <a href="signup.html" class="button">Sign Up</a>
+    </div>
+    
+    <div class="home-section">
+        <h2>Available Accounts</h2>
+        <ul class="account-list">
+            <li class="account-item">Steam Account - 50 - 100 Games - <strong>$60-150</strong></li>
+            <li class="account-item">Roblox Account - Rare Items - <strong>$50</strong></li>
+            <li class="account-item">Fortnite Account - Rare  - <strong>Don't Have Stock Yet</strong></li>
+        </ul>
+    </div>
+</body>
+</html>
